@@ -4,7 +4,13 @@ from django.db import models
 
 
 class Category(models.Model):
-    name= models.CharField(max_length=50)
+    name= models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
 
     @staticmethod
     def get_all_categories():
@@ -15,11 +21,20 @@ class Category(models.Model):
     
 
 class Products(models.Model):
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=60, unique=True)
     price= models.IntegerField(default=0)
     category= models.ForeignKey(Category,on_delete=models.CASCADE,default=1 )
     description= models.CharField(max_length=250, default='', blank=True, null= True)
-    image= models.ImageField(upload_to='product')
+    image= models.ImageField(upload_to='product/%Y/%m/%d', blank=True, null= True)
+    stock= models.IntegerField()
+    available= models.BooleanField(default=True)
+    created= models.DateTimeField(auto_now_add=True)
+    updated= models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
 
     @staticmethod
     def get_products_by_id(ids):
