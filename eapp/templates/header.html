@@ -1,3 +1,5 @@
+{% load static %}
+
 <style>
     
 .form-inputs{
@@ -33,44 +35,47 @@
 .qty{
     font-size:12px;
 }
+
+.navbar-nav > li{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.section-header ul li a{
+  font-family: 'Montserrat', sans-serif;
+}
 </style>
 
 
 <header class="section-header">
 
-    <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
+    <nav class="navbar navbar-dark navbar-expand-lg p-0 bg-dark">
       <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <ul>
+
+                <ul class="navbar-nav d-none d-md-flex mr-auto mx-4">
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">LOUIS PHILIPPE</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">PETER ENGLAND</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">VAN HEUSEN</a></li>
                 </ul>
-            </div>
-
-            <div class="col-md-4">
-                <ul class="navbar-nav ml-auto">
+            
+                <ul class="navbar-nav d-none d-md-flex ">
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">CONTACT US</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">LOG IN</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#" data-abc="true">SIGN UP</a></li>
                 </ul>
-            </div>
 
-            <div class="col-md-4">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <div class="d-flex flex-row">
-                            <img src="https://i.imgur.com/EYFtR83.jpg" class="rounded-circle" width="30">
+                            <img src="https://i.imgur.com/EYFtR83.jpg" alt="profile_pic" class="rounded-circle" width="30">
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link d-flex align-items-center" data-abc="true"><span>Nantano M</span><i class='bx bxs-chevron-down'></i></a>
-                    </li>
-                    
+                        <a href="#" class="nav-link d-flex align-items-center text-white" data-abc="true"><span>Nantano M</span><i class='bx bxs-chevron-down'></i></a>
+                    </li>                   
                 </ul> <!-- list-inline //  -->
-            </div>
-        </div>
+           
+        
       </div> <!-- navbar-collapse .// -->
      <!-- container //  -->
     </nav> <!-- header-top-light.// -->
@@ -79,7 +84,7 @@
         <div class="container-fluid">
            <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
                <div class="col-md-2">
-                   <img  class="d-none d-md-flex" src="https://i.imgur.com/R8QhGhk.png" width="100">
+                   <img  class="d-none d-md-flex mx-4" src="{% static 'img/ecomLogo.png' %}"alt="logo" width="100">
                </div>
                <div class="col-md-8">
             <div class="d-flex form-inputs">
@@ -103,24 +108,24 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
       <div class="container-fluid">
-        <a class="navbar-brand d-md-none d-md-flex " href="#">Categories</a>
+        <!-- <a class="navbar-brand d-md-none d-md-flex " href="#">Categories</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mx-auto ">
             <li class="nav-item ">
-              <a class="nav-link active" aria-current="page" href="#">ALL PRODUCTS</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'eapp:allProducts_page' %}"><b>ALL PRODUCTS</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">MEN</a>
+              <a class="nav-link text-dark" href="#"><strong>MEN</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">WOMEN</a>
+              <a class="nav-link text-dark" href="#"><b>WOMEN</b></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                KIDS
+              <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <b>KIDS</b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">BOYS</a></li>
@@ -129,7 +134,7 @@
               </ul>
             </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">NEW ARRIVALS</a>
+                <a class="nav-link text-dark" href="#"><b>NEW ARRIVALS</b></a>
               </li>
           </ul>
         </div>

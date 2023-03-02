@@ -5,6 +5,7 @@ from django.db import models
 
 class Category(models.Model):
     name= models.CharField(max_length=50, unique=True)
+    slug= models.SlugField(max_length=250, unique=True)
 
     class Meta:
         ordering = ('name',)
@@ -22,6 +23,7 @@ class Category(models.Model):
 
 class Products(models.Model):
     name = models.CharField(max_length=60, unique=True)
+    slug= models.SlugField(max_length=250, unique=True)
     price= models.IntegerField(default=0)
     category= models.ForeignKey(Category,on_delete=models.CASCADE,default=1 )
     description= models.CharField(max_length=250, default='', blank=True, null= True)

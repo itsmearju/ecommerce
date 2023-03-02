@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% if category %}
+
+{{ category.name }}
+
+{% else %}
+
+Men, Women & Kids Online Shopping - ABC Store 
+
+{% endif %}
+
+{% endblock %}
