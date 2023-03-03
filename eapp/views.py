@@ -19,4 +19,4 @@ def allProducts_page(request, cat_slug=None):
         products = Products.objects.all().filter(category=cat_page, available=True)
     else:
         products = Products.objects.all().filter(available=True)
-    return render(request, 'home.html', {'category':cat_page, 'products':products})
+    return render(request, 'base.html', {'category':cat_page, 'products':products})

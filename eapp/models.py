@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -11,7 +12,9 @@ class Category(models.Model):
         ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
-
+    
+    def get_url(self):
+        return reverse('eapp:products_by_category', args=[self.slug])
 
     @staticmethod
     def get_all_categories():
