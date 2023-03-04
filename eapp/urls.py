@@ -8,4 +8,5 @@ urlpatterns = [
 
     #--------to display products by category-----------#
     path('<slug:cat_slug>/', views.allProducts_page, name = 'products_by_category'),
+    path('adminhome', views.adminhome,name='adminhome'),
 ]
