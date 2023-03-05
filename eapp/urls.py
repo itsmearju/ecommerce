@@ -8,5 +8,11 @@ urlpatterns = [
 
     #--------to display products by category-----------#
     path('<slug:cat_slug>/', views.allProducts_page, name = 'products_by_category'),
-    path('adminhome', views.adminhome,name='adminhome'),
+    path('adminhome', views.adminhome, name='adminhome'),
+    path('loginpage', views.loginpage, name='loginpage'),
+    path('logout_user', views.logout_user, name='logout_user'),
+
+    path('add_category', views.add_category, name='add_category'),
+    path('save_category', views.save_category, name='save_category'),
+
 ]

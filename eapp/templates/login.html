@@ -1,13 +1,13 @@
 
-{% load static %}
+ {% load static %}
 
- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+ <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
  <!-- Font Awesome -->
  <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}">
  
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
@@ -18,16 +18,18 @@
         </div>
         <div class="modal-body">
           
-            <form>
-                <!-- Email input -->
+            <form action="{% url 'eapp:loginpage' %}" method="POST">
+              {% csrf_token %}
+              
+                <!-- Email/username input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form2Example1" class="form-control" />
-                  <label class="form-label" for="form2Example1">Email address</label>
+                  <input type="text" id="form2Example1" class="form-control"name="name" />
+                  <label class="form-label" for="form2Example1">Username</label>
                 </div>
               
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form2Example2" class="form-control" />
+                  <input type="password" id="form2Example2" class="form-control"name="pswd" />
                   <label class="form-label" for="form2Example2">Password</label>
                 </div>
               
@@ -48,7 +50,7 @@
                 </div>
               
                 <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
               
                 <!-- Register buttons -->
                 <div class="text-center">
@@ -82,4 +84,4 @@
   $('#myInput').trigger('focus')
 })
   </script>
-
+ -->

@@ -53,9 +53,7 @@
       <div class="container-fluid">
 
                 <ul class="navbar-nav d-none d-md-flex mr-auto mx-4">
-                    <li class="nav-item"><a class="nav-link text-white" href="#" >LOUIS PHILIPPE</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#" >PETER ENGLAND</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">VAN HEUSEN</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#" >Delivery around 30 kms in the Restaurant's Located Area</a></li>
                 </ul>
             
                 <ul class="navbar-nav d-none d-md-flex ">
@@ -88,7 +86,7 @@
                </div>
                <div class="col-md-8">
             <div class="d-flex form-inputs">
-            <input class="form-control" type="text" placeholder="Search any product..."autocomplete="off">
+            <input class="form-control" type="text" placeholder="Find the best Foods, Drinks, Mocktail etc in ABC Restaurant"autocomplete="off">
             <i class="bx bx-search"></i>
             </div>
                </div>
@@ -115,12 +113,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav mx-auto ">
             <li class="nav-item ">
-              <a class="nav-link active" aria-current="page" href="{% url 'eapp:allProducts_page' %}"><b>ALL PRODUCTS</b></a>
+              <a class="nav-link active" aria-current="page" href="{% url 'eapp:allProducts_page' %}"><b>ALL DISHES</b></a>
             </li>
 
-            {% for I in links %}
+            {% for cate in data %}
             <li class="nav-item"> 
-              <a class="nav-link text-dark" href="{{ i.get_url }}"><strong>{{ I.name }}</strong></a> 
+              <a class="nav-link text-dark" href="{{ i.get_url }}"><strong>{{ cate.name }}</strong></a> 
             </li>
             {% endfor %}
            
