@@ -12,9 +12,6 @@ class Category(models.Model):
         ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
-    
-    def get_url(self):
-        return reverse('eapp:products_by_category', args=[self.slug])
 
     @staticmethod
     def get_all_categories():
@@ -36,11 +33,6 @@ class Products(models.Model):
     created= models.DateTimeField(auto_now_add=True)
     updated= models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ('name',)
-        verbose_name = 'product'
-        verbose_name_plural = 'products'
-
     @staticmethod
     def get_products_by_id(ids):
         return Products.objects.filter (id__in=ids)
@@ -53,7 +45,12 @@ class Products(models.Model):
         if category_id:
             return Products.objects.filter (category=category_id)
         else:
-            return Products.get_all_products()    
+            return Products.get_all_products()
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
      
     def __str__(self):
         return self.name

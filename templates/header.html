@@ -113,12 +113,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav mx-auto ">
             <li class="nav-item ">
-              <a class="nav-link active" aria-current="page" href="{% url 'eapp:allProducts_page' %}"><b>ALL DISHES</b></a>
+              <a class="nav-link active" aria-current="page" href="/"><b>ALL DISHES</b></a>
             </li>
 
-            {% for cate in data %}
+            {% for category in data %}
             <li class="nav-item"> 
-              <a class="nav-link text-dark" href="{{ i.get_url }}"><strong>{{ cate.name }}</strong></a> 
+              <a class="nav-link text-dark" href="/?category={{category.id}}"name="category"><strong>{{ category.name }}</strong></a> 
             </li>
             {% endfor %}
            

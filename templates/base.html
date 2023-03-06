@@ -34,12 +34,34 @@
         
         {% include 'login.html' %}
 
+        {% include 'home.html' %}
+
         {% block content %}  
+
+        
+
+        <div>
+          {% for product in products %}
+          <div>
+              <img src="{{ product.image.url }}">
+          </div>
+          <div>
+             
+              <h2>{{ product.name }}</h2>
+          </div>
+          <div>
+              <h4>{{ product.price }}</h4>
+          </div>
+          <div>
+              <h6>{{ product.description }}</h6>
+          </div>
+          {% endfor %}
+      </div>
 
         {% endblock %}
        </div>
         
-        {% include 'footer.html' %}
+       
 
         <script>
             $('#exampleModal').on('shown.bs.modal', function () {

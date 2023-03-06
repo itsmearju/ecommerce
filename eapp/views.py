@@ -16,16 +16,15 @@ from eapp import models
 
 #----------------home page ----------#
 
-def allProducts_page(request, cat_slug=None):
-    cat_page = None
-    products = None
-    if cat_slug != None:
-        cat_page = get_object_or_404(Category, slug=cat_slug)
-        products = Products.objects.all().filter(category=cat_page, available=True)
+def allProducts_page(request):
+    
+    data = Category.get_all_categories()
+    categoryID = request.GET.get('category')
+    if categoryID:
+        products = Products.get_all_products_by_categoryid(categoryID)
     else:
-        products = Products.objects.all().filter(available=True)
-    data = Category.objects.all()
-    return render(request, 'base.html', {'category':cat_page, 'products':products,'data':data})
+        products = Products.get_all_products()
+    return render(request, 'base.html', {'data':data,'products':products})
 
 
 def adminhome(request):
