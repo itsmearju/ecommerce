@@ -16,6 +16,7 @@ from eapp import models
 
 #----------------home page ----------#
 
+
 def allProducts_page(request):
     
     data = Category.get_all_categories()

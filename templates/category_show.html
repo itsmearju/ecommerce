@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+<div>
+    {% for product in products %}
+    <div>
+        <img class="img-thumbnail" src="{{ product.image.url }}">
+    </div>
+    <div>
+       
+        <h2>{{ product.name }}</h2>
+    </div>
+    <div>
+        <h4>{{ product.price }}</h4>
+    </div>
+    <div>
+        <h6>{{ product.description }}</h6>
+    </div>
+    <div>
+      <h6>{{ product.stock }}</h6>
+  </div>
+  <div>
+    <h6>{{ product.available }}</h6>
+</div>
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
