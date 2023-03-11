@@ -16,10 +16,13 @@ from eapp import models
 
 #----------------home page ----------#
 
+def home(request):
+    data = Category.get_all_categories() 
+    return render(request, 'home.html', {'data':data})
+
 
 def allProducts_page(request):  
-    data = Category.get_all_categories() 
-    return render(request, 'base.html', {'data':data})
+    return render(request, 'base.html')
 
 def prod_show_by_cat(request):
     categoryID = request.GET.get('category')

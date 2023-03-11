@@ -3,8 +3,9 @@ from . import views
 app_name = 'eapp'
 
 urlpatterns = [
-
-    path('', views.allProducts_page, name = 'allProducts_page'),
+    
+    path('', views.home, name='home'),
+    path('allProducts_page', views.allProducts_page, name = 'allProducts_page'),
 
     path('prod_show_by_cat', views.prod_show_by_cat, name='prod_show_by_cat'),
     path('adminhome', views.adminhome, name='adminhome'),

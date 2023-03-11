@@ -1,5 +1,18 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
 <style>
     @media screen and (min-width:991px){
         .cover img{
@@ -9,59 +22,70 @@
     }
     *{
         font-family: 'Montserrat', sans-serif;
-    }
-    
+    } 
 </style>
 
-<div class="cover">
-    <div>
-        <img class="img-thumbnail"src="{% static 'img/cover3.jpg' %}">
+</head>
+<body>
+
+    <div class="cover">
+        <div>
+            <img class="img-thumbnail"src="{% static 'img/cover3.jpg' %}">
+        </div>
     </div>
-</div>
-
-<div class="py-5">
-     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-        <div class="row mx-auto">
-
-           
-
-            <div class="col-md-2">
-               <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-rounded img-thumbnail"src="{% static 'img/biriyani.jpg' %}"alt="biriyani"></a>
-               <h5 class="text-center py-3">BIRIYANI</h5>
-            </div>
     
-            <div class="col-md-2">
-               <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/manti.jpg' %}"alt="manti"></a>
-               <h5 class="text-center py-3">ALFAHM MANTI</h5>
-            </div>
+    <div class="py-5">
+         <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+            <div class="row mx-auto">
     
-            <div class="col-md-2">
-               <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-thumbnail"src="{% static 'img/nudles.jpg' %}"alt="nudles"></a>
-               <h5 class="text-center py-3">SCHEZWAN NOODLES</h5>
-            </div> 
+               
     
-            <div class="col-md-2">
-               <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/mocktail.jpg' %}"alt="mocktail"></a>
-               <h5 class="text-center py-3">MOCKTAIL</h5>
-            </div>
+                <div class="col-md-2">
+                   <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-rounded img-thumbnail"src="{% static 'img/biriyani.jpg' %}"alt="biriyani"></a>
+                   <h5 class="text-center py-3">BIRIYANI</h5>
+                </div>
+        
+                <div class="col-md-2">
+                   <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/manti.jpg' %}"alt="manti"></a>
+                   <h5 class="text-center py-3">ALFAHM MANTI</h5>
+                </div>
+        
+                <div class="col-md-2">
+                   <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-thumbnail"src="{% static 'img/nudles.jpg' %}"alt="nudles"></a>
+                   <h5 class="text-center py-3">SCHEZWAN NOODLES</h5>
+                </div> 
+        
+                <div class="col-md-2">
+                   <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/mocktail.jpg' %}"alt="mocktail"></a>
+                   <h5 class="text-center py-3">MOCKTAIL</h5>
+                </div>
+        
+                <div class="col-md-2">
+                    <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/porota1.jpg' %}"alt="porota"></a>
+                    <h5 class="text-center py-3">POROTTA & BEEF</h5>
+                </div>
     
-            <div class="col-md-2">
-                <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class=" img-thumbnail"src="{% static 'img/porota1.jpg' %}"alt="porota"></a>
-                <h5 class="text-center py-3">POROTTA & BEEF</h5>
-            </div>
-
-            <div class="col-md-2">
-                <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-thumbnail"src="{% static 'img/burger.jpg' %}"alt="burger"></a>
-                <h5 class="text-center py-3">BURGER </h5>
-            </div>
+                <div class="col-md-2">
+                    <a href="{% url 'eapp:prod_show_by_cat' %}"> <img class="img-thumbnail"src="{% static 'img/burger.jpg' %}"alt="burger"></a>
+                    <h5 class="text-center py-3">BURGER </h5>
+                </div>
+        
+                
     
-            
-
+             </div>
+             </div>
+             <div class="col-md-1"></div>
          </div>
-         </div>
-         <div class="col-md-1"></div>
-     </div>
-</div>
-  
+    </div>
+      
+    
+</body>
+</html>
+
+{% endblock %}
+
+
+
+

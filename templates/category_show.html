@@ -14,16 +14,23 @@
         <h2>{{ product.name }}</h2>
     </div>
     <div>
+        <h4>Price</h4>
         <h4>{{ product.price }}</h4>
     </div>
     <div>
+        <h4>Discription</h4>
         <h6>{{ product.description }}</h6>
     </div>
     <div>
+        <h4>Stock in</h4>
       <h6>{{ product.stock }}</h6>
   </div>
   <div>
-    <h6>{{ product.available }}</h6>
+    {% if available %}
+    <h6>Available</h6>
+    {% else %}
+    <h6>Not Available</h6>
+    {% endif %}
 </div>
     {% endfor %}
 </div>
