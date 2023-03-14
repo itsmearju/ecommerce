@@ -16,21 +16,14 @@ from eapp import models
 
 #----------------home page ----------#
 
-def home(request):
-    data = Category.get_all_categories() 
-    return render(request, 'home.html', {'data':data})
-
-
 def allProducts_page(request):  
-    return render(request, 'base.html')
-
-def prod_show_by_cat(request):
+    data = Category.get_all_categories()
     categoryID = request.GET.get('category')
     if categoryID:
         products = Products.get_all_products_by_categoryid(categoryID)
     else:
         products = Products.get_all_products()
-    return render(request, 'category_show.html', {'products':products})
+    return render(request, 'category_show.html', {'products':products,'data':data})
 
 
 def adminhome(request):

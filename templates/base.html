@@ -142,7 +142,7 @@
   
             {% for category in data %}
             <li class="nav-item"> 
-             <a class="nav-link text-dark" href="{% url 'eapp:prod_show_by_cat' %}"><strong>{{ category.name }}</strong></a> 
+             <a class="nav-link text-dark" href="/?category={{category.id}}"><strong>{{ category.name }}</strong></a> 
             </li>
             {% endfor %}
            
@@ -170,7 +170,7 @@
   </header>
                             
 
-    
+   {% include 'login.html' %} 
   <div>
   {% block content %}
 
