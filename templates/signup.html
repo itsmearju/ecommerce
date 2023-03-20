@@ -1,5 +1,4 @@
-
- {% load static %}
+{% load static %}
 
  <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
  <!-- Font Awesome -->
@@ -7,54 +6,52 @@
  
 
    <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
-          <h5 class="modal-title" id="exampleModalLabel">LOG IN</h5>
+          <h5 class="modal-title" id="exampleModalLabel">SIGN UP</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           
-            <form action="{% url 'eapp:loginpage' %}" method="POST">
+            <form action="#" method="POST">
               {% csrf_token %}
               
-                <!-- Email/username input -->
+                <!-- first name input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example1">Username</label>
-                  <input type="text" id="form2Example1" class="form-control"name="name" />
+                  <input type="text"  class="form-control"name="fname"placeholder="Enter your Full name" />
                 </div>
-              
-                <!-- Password input -->
+
+                <!-- last name input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example2">Password</label>
-                  <input type="password" id="form2Example2" class="form-control"name="pswd" />
+                    <input type="text" id="form2Example2" class="form-control"name="uname"placeholder="Enter username" />
+                </div>
+
+                <!-- last name input -->
+                <div class="form-outline mb-4">
+                    <input type="email" id="form2Example2" class="form-control"name="email"placeholder="Enter your Email-id" />
+                </div>
+
+                <!-- last name input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="form2Example2" class="form-control"name="pswd"placeholder="New Password" />
+                </div>
+
+                <!-- last name input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="form2Example2" class="form-control"name="cpswd"placeholder="Confirm Password" />
                 </div>
               
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                  <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                      <label class="form-check-label" for="form2Example31"> Remember me </label>
-                    </div>
-                  </div>
-              
-                  <div class="col">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
-                  </div>
-                </div>
               
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
               
                 <!-- Register buttons -->
                 <div class="text-center">
-                  <p>Not a member? <a href="#!">Register</a></p>
+                  <p>Already have an account ? <a href="#!">Log in</a></p>
                   <p>or sign up with:</p>
                   <button type="button" class="btn btn-link btn-floating mx-1">
                     <i class="fab fa-facebook-f"></i>
@@ -80,8 +77,8 @@
   </div>
 
   <script>
-    $('#exampleModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
+    $('#exampleModal2').on('shown.bs.modal', function () {
+  $('#myInput2').trigger('focus')
 })
   </script>
 
