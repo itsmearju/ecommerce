@@ -17,7 +17,7 @@
         </div>
         <div class="modal-body">
           
-            <form action="#" method="POST">
+            <form action="{% url 'eapp:sign_up' %}" method="POST">
               {% csrf_token %}
               
                 <!-- first name input -->

@@ -55,3 +55,10 @@ class Products(models.Model):
     def __str__(self):
         return self.name
     
+
+class signup(models.Model):
+    fname = models.CharField(max_length=255)
+    uname = models.CharField(max_length=60)   
+    email = models.EmailField()
+    paswd = models.CharField(max_length=255)
+    cpaswd = models.CharField(max_length=255)

@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from . models import Category, Products
+from . models import Category, Products, signup
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate,login,logout
 
@@ -77,3 +77,36 @@ def save_category(request):
              messages.error(request, "Failed to Add Category!")
              return redirect('eapp:add_category')
    
+
+def sign_up(request):
+    if request.method != 'POST':
+        messages.error(request, "Invalid Method ")
+        return redirect('eapp:allProducts_page')
+    
+    else:
+        data = signup()
+
+        try:
+            name = request.POST.get('fname')
+            username = request.POST.get('uname')
+            email = request.POST.get('email')
+            pasword = request.POST.get('pswd')
+            cpasword = request.POST.get('cpswd')
+        
+            data.fname = name
+            data.uname = username
+            data.email = email
+            data.paswd = pasword
+            data.cpaswd = cpasword
+
+            data.save()
+
+            messages.success(request, 'Registered successfully')
+            return redirect('eapp:allProducts_page')
+        
+        except:
+            messages.error(request, "Failed to Register!")
+            return redirect('eapp:allProducts_page')
+
+        
+
