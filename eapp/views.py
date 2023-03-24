@@ -29,6 +29,9 @@ def allProducts_page(request):
 def adminhome(request):
     return render(request,'admin_base.html')
 
+def customer_home(request):
+    return render(request, 'user_profile.html' )
+
 def loginpage(request):
     if request.method == 'POST':
         username = request.POST['name']      
@@ -43,11 +46,11 @@ def loginpage(request):
                 login(request,user)
                 auth.login(request,user) 
                 #messages.info(request, f'Welcome {username}') 
-                return redirect('allProducts_page') 
+                return redirect('customer_home') 
              
         else:
              #messages.info(request, 'Invalid username or password, Try again')
-             return redirect('allProducts_page') 
+             return redirect('eapp:allProducts_page') 
     else:
         #messages.info(request,'Oops, Please Login ')
         return render(request, 'base.html')  
