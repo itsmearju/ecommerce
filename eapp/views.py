@@ -1,115 +1,26 @@
-from django.contrib import messages
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
-from . models import Category, Products, signup
-from django.contrib.auth.models import User,auth
-from django.contrib.auth import authenticate,login,logout
 
-from eapp import models
+from django.shortcuts import render
 
-# Create your views here.
+# create views here
+
+def store(request):
+    context = {}
+    return render(request, 'store/store.html', context)
 
 
-# def base(request): 
-#     return render(request, 'base.html')
+def cart(request):
+    context = {}
+    return render(request, 'store/cart.html', context)
 
 
-#----------------home page ----------#
-
-def allProducts_page(request):  
-    data = Category.get_all_categories()
-    categoryID = request.GET.get('category')
-    if categoryID:
-        products = Products.get_all_products_by_categoryid(categoryID)
-    else:
-        products = Products.get_all_products()
-    return render(request, 'category_show.html', {'products':products,'data':data})
+def checkout(request):
+    context = {}
+    return render(request, 'store/checkout.html', context)
 
 
-def adminhome(request):
-    return render(request,'admin_base.html')
 
-def customer_home(request):
-    return render(request, 'user_profile.html' )
 
-def loginpage(request):
-    if request.method == 'POST':
-        username = request.POST['name']      
-        password = request.POST['pswd'] 
-       
-        user = auth.authenticate(username=username, password=password)   
-        if user is not None:   
-            if user.is_staff:
-                login(request,user)
-                return redirect('eapp:adminhome')                #login when user variable has correct values
-            else:
-                login(request,user)
-                auth.login(request,user) 
-                #messages.info(request, f'Welcome {username}') 
-                return redirect('customer_home') 
-             
-        else:
-             #messages.info(request, 'Invalid username or password, Try again')
-             return redirect('eapp:allProducts_page') 
-    else:
-        #messages.info(request,'Oops, Please Login ')
-        return render(request, 'base.html')  
-    
-def logout_user(request):
-    logout(request)
-    return redirect('eapp:allProducts_page')
 
-def add_category(request):  
-    return render(request, 'admin_add_cate.html')
-
-def save_category(request):
-    if request.method != 'POST':
-         messages.error(request, "Invalid Method ")
-         return redirect('eapp:add_category')
-        
-    else:
-        cate = request.POST.get('category')
-
-        try: 
-           data = models.Category(name=cate)
-           data.save()
-           messages.success(request, 'New Category added successfully')
-           return redirect('eapp:add_category')
-        
-        except:
-             messages.error(request, "Failed to Add Category!")
-             return redirect('eapp:add_category')
-   
-
-def sign_up(request):
-    if request.method != 'POST':
-        messages.error(request, "Invalid Method ")
-        return redirect('eapp:allProducts_page')
-    
-    else:
-        data = signup()
-
-        try:
-            name = request.POST.get('fname')
-            username = request.POST.get('uname')
-            email = request.POST.get('email')
-            pasword = request.POST.get('pswd')
-            cpasword = request.POST.get('cpswd')
-        
-            data.fname = name
-            data.uname = username
-            data.email = email
-            data.paswd = pasword
-            data.cpaswd = cpasword
-
-            data.save()
-
-            messages.success(request, 'Registered successfully')
-            return redirect('eapp:allProducts_page')
-        
-        except:
-            messages.error(request, "Failed to Register!")
-            return redirect('eapp:allProducts_page')
 
         
 
