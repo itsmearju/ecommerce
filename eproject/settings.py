@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'eproject.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecom_git',
+        'NAME': 'ecommerce',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
