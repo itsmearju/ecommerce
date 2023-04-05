@@ -5,17 +5,19 @@
 
 
 <div class="row">
+    {% for product in products %}
     <div class="col-lg-4">
-        <img class="thumbnail" src="{% static 'images/homepic.png' %}">
+        <img class="thumbnail" src="{{ product.image.url }}">
          <div class="box-element product">
-            <h6><strong>Product</strong></h6>
+            <h6><strong>{{ product.name }}</strong></h6>
             <hr>
             <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
             <a class="btn btn-outline-success">View</a>
-            <h4 style=" float:right;">$20</h4>
+            <h4 style=" float:right;">${{ product.price|floatformat:2  }}</h4>
          </div>
     </div>
-
+    {% endfor %}
+<!-- 
     <div class="col-lg-4">
         <img class="thumbnail" src="{% static 'images/homepic.png' %}">
         <div class="box-element product">
@@ -36,7 +38,7 @@
             <a class="btn btn-outline-success">View</a>
             <h4 style="float:right;">$20</h4>
         </div>
-    </div>
+    </div> -->
 
 </div>
 
