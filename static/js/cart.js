@@ -10,7 +10,8 @@ for(var i =0; i < updateBtns.length; i++){
         if(user === 'AnonymousUser'){
             console.log('Not logged in')
 
-        }else{
+        }
+        else{
             updateUserOrder(productId, action)
         }
     })
