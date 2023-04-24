@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import *
 import datetime
 
+
 # create views here
 
 def store(request):
@@ -79,6 +80,9 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 
+#from django.views.decorators.csrf import csrf_exempt
+
+#@csrf_exempt
 def processOrder(request):
     transaction_id = datetime.now().timestamp()
     data = json.loads(request.body)

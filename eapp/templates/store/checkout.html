@@ -6,7 +6,8 @@
     <div class="col-lg-6">
         <div class="box-element"id="form-wrapper">
              <form id="form">
-                <div class="user-info">
+                {% csrf_token %}
+                <div id="user-info">
                     <div class="form-field">
                         <input required class="form-control" type="text" name="name" placeholder="Name..">
                     </div>
@@ -14,7 +15,7 @@
                         <input required class="form-control" type="email" name="email" placeholder="Email..">
                     </div>
                 </div>
-                <div id="shipping-info" class="shipping-info">
+                <div id="shipping-info">
                     <hr>
 						<p>Shipping Information:</p>
 						<hr>
@@ -86,6 +87,10 @@
     }
 
     var form = document.getElementById('form')
+
+    csrftoken = form.getElementsByTagName("input")[0].value
+    console.log('Newtoken:', form.getElementsByTagName("input")[0].value)
+
     form.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('form submitted')
@@ -137,7 +142,7 @@
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log('success:', data);
+            console.log('Success:', data);
             alert('Transaction completed');
             window.location.href = "{% url 'store' %}"
         })

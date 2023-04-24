@@ -29,7 +29,19 @@
       }
       return cookieValue;
   }
-  const csrftoken = getToken('csrftoken');
+  var csrftoken = getToken('csrftoken');
+  console.log('CSRFTOKEN:', csrftoken)
+
+  function getCookie(name) {
+    // split cookie string and get all individual name=value pairs in an array
+    var cookieArr = document.cookie.split(";")
+
+    // loop through the array elememnts
+    for(var i = 0; i < cookieArr.length; i++ ) {
+      var cookiePair = cookieArr[i].split("=");
+    
+    }
+  }
     
     </script>
 
