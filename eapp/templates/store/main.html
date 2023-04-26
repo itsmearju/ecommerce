@@ -39,9 +39,25 @@
     // loop through the array elememnts
     for(var i = 0; i < cookieArr.length; i++ ) {
       var cookiePair = cookieArr[i].split("=");
+
+      /*removing whitespace at the beginning of the cookie name and compare it with the given string */arguments
+      if(name == cookiePair[0].trim()) {
+        // decode the cookie value and retun
+        return decodeURIComponent(cookiePair[1]);
+      }
     
     }
+
+    // return null if not found
+    return null;
   }
+  var cart = JSON.parse(getCookie('cart'))
+  if(cart == undefined)  {
+    cart = {}
+    console.log('Cart was created')
+    document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+  }
+  console.log('Cart:', cart)
     
     </script>
 
