@@ -6,6 +6,9 @@ from .models import *
 import datetime
 
 
+from . utils import cookieCart
+
+
 # create views here
 
 def store(request):
